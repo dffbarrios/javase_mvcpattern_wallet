@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9/09/2018 12:50:40 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="bd_mywallet_dev" name="model.pojo.TblAccount" table="tbl_account">
+    <id name="accId" type="java.lang.Integer">
+      <column name="acc_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="model.pojo.TblAccounttype" fetch="select" name="tblAccounttype">
+      <column name="acc_accountype"/>
+    </many-to-one>
+    <property name="accNumber" type="string">
+      <column length="45" name="acc_number" not-null="true"/>
+    </property>
+    <property name="accOwner" type="java.lang.Integer">
+      <column name="acc_owner"/>
+    </property>
+    <property name="accBalance" type="java.lang.Double">
+      <column name="acc_balance" precision="22" scale="0"/>
+    </property>
+    <property name="accCreationdate" type="timestamp">
+      <column length="19" name="acc_creationdate"/>
+    </property>
+    <property name="accStatus" type="java.lang.Boolean">
+      <column name="acc_status"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tblTransactions" table="tbl_transaction">
+      <key>
+        <column name="tra_account"/>
+      </key>
+      <one-to-many class="model.pojo.TblTransaction"/>
+    </set>
+  </class>
+</hibernate-mapping>
