@@ -6,10 +6,70 @@
 
 package presentation.model.dal.implementation;
 
+import java.util.List;
+import presentation.model.dao.Connection;
+import presentation.model.pojo.TblAccount;
+import presentation.model.dal.exceptions.Exceptions;
+import presentation.model.dal.abstraction.IAccountDal;
+
 /**
  *
  * @author Diego SNP3004EX
  */
-public class AccountDal {
-    
+public class AccountDal implements IAccountDal {
+
+    @Override
+    public void insert(TblAccount account) {
+        
+       Connection session = new Connection();
+
+        try{
+            session.getSession().persist(account);
+            session.getTransaction().commit();   
+            
+        }catch(Exception ex){
+            session.tryRollBack();
+            throw new RuntimeException(Exceptions.insertAccountError, ex);
+            
+        }finally{
+              session.closeSession();
+        }       
+    }
+
+    @Override
+    public void update(TblAccount account) {
+        Connection session = new Connection();
+        
+        try{
+            session.getSession().update(account);
+            session.getTransaction().commit();
+           
+        }catch(Exception ex){
+            session.tryRollBack();
+            throw new RuntimeException(Exceptions.updateTransactionError, ex);
+        
+        }finally{
+            session.closeSession();        
+        }
+    }
+
+    @Override
+    public List<TblAccount> get() {
+         List<TblAccount> accounts;
+        Connection session = new Connection();
+             
+        try{
+            accounts = session.getSession().createQuery("from TblAccount").list();    
+        
+        }catch(Exception ex){
+            
+            session.tryRollBack();
+            throw new RuntimeException(Exceptions.getTransactionError, ex);
+        
+        }finally{
+            session.closeSession();
+        }  
+        
+        return accounts;  
+    }   
 }

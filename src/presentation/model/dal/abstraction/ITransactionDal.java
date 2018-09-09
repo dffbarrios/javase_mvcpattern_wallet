@@ -10,6 +10,6 @@ import presentation.model.pojo.TblTransaction;
 public interface ITransactionDal {
     void insert(TblTransaction transaction);
     void update(TblTransaction transaction);
-    void delete(TblTransaction transaction);
+    //void delete(TblTransaction transaction);
     List<TblTransaction> get();
 }

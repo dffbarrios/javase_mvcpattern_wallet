@@ -10,6 +10,6 @@ import presentation.model.pojo.TblAccount;
 public interface IAccountDal {
     void insert(TblAccount account);
     void update(TblAccount account);
-    void delete(TblAccount account);
+    //void delete(TblAccount account);
     List<TblAccount> get();
 }
