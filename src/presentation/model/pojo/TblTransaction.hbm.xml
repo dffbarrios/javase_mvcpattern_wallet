@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9/09/2018 12:50:40 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="presentation.model.pojo.TblTransaction" table="tbl_transaction" catalog="bd_mywallet_dev">
+        <id name="traId" type="int">
+            <column name="tra_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tblCategory" class="presentation.model.pojo.TblCategory" fetch="select">
+            <column name="tra_category" />
+        </many-to-one>
+        <many-to-one name="tblConcept" class="presentation.model.pojo.TblConcept" fetch="select">
+            <column name="tra_concept" />
+        </many-to-one>
+        <many-to-one name="tblAccount" class="presentation.model.pojo.TblAccount" fetch="select">
+            <column name="tra_account" />
+        </many-to-one>
+        <property name="traNumber" type="java.lang.Integer">
+            <column name="tra_number" />
+        </property>
+        <property name="traBalance" type="java.lang.Double">
+            <column name="tra_balance" precision="22" scale="0" />
+        </property>
+        <property name="traDate" type="timestamp">
+            <column name="tra_date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
