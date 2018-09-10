@@ -18,6 +18,9 @@ public class ConceptDal implements IConceptDal {
         Connection session = new Connection();
 
         try{
+            if("".equals(concept.getConDesc()))
+                concept.setConDesc(concept.getConName());
+            
             session.getSession().persist(concept);
             session.getTransaction().commit();   
             

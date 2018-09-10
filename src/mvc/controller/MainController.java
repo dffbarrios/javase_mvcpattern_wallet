@@ -32,6 +32,7 @@ public class MainController implements ActionListener {
          
         view.setResizable(false);
         view.setVisible(true);
+        view.setLocationRelativeTo(null);
     }
 
     @Override

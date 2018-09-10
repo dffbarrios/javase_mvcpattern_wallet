@@ -38,7 +38,6 @@ public class JFFAccount extends javax.swing.JFrame {
         jlbl_type = new javax.swing.JLabel();
         jcbox_type = new javax.swing.JComboBox();
         btn_add = new javax.swing.JButton();
-        btn_delete = new javax.swing.JButton();
         jpnl_account_show = new javax.swing.JPanel();
         jscp_account = new javax.swing.JScrollPane();
         jtbl_account = new javax.swing.JTable();
@@ -61,8 +60,6 @@ public class JFFAccount extends javax.swing.JFrame {
         jcbox_type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opción" }));
 
         btn_add.setText("Agregar");
-
-        btn_delete.setText("Eliminar");
 
         javax.swing.GroupLayout jpnl_account_catchLayout = new javax.swing.GroupLayout(jpnl_account_catch);
         jpnl_account_catch.setLayout(jpnl_account_catchLayout);
@@ -92,9 +89,8 @@ public class JFFAccount extends javax.swing.JFrame {
                         .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpnl_account_catchLayout.createSequentialGroup()
                                 .addComponent(jlbl_balance)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jspn_balance)
-                            .addComponent(btn_delete, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                                .addGap(0, 109, Short.MAX_VALUE))
+                            .addComponent(jspn_balance))
                         .addContainerGap())))
         );
         jpnl_account_catchLayout.setVerticalGroup(
@@ -115,8 +111,7 @@ public class JFFAccount extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbox_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_add)
-                    .addComponent(btn_delete))
+                    .addComponent(btn_add))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -217,7 +212,6 @@ public class JFFAccount extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_add;
-    private javax.swing.JButton btn_delete;
     private javax.swing.JComboBox jcbox_type;
     private javax.swing.JLabel jlbl_balance;
     private javax.swing.JLabel jlbl_number;

@@ -107,10 +107,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jlbl_balance" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="109" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jspn_balance" max="32767" attributes="0"/>
-                              <Component id="btn_delete" pref="146" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -139,7 +138,6 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jcbox_type" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_add" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_delete" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -185,11 +183,6 @@
         <Component class="javax.swing.JButton" name="btn_add">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn_delete">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
         </Component>
       </SubComponents>
