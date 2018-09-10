@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9/09/2018 12:50:40 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="bd_mywallet_dev" name="mvc.model.dal.pojo.TblConcept" table="tbl_concept">
+    <id name="conId" type="java.lang.Integer">
+      <column name="con_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="conName" type="string">
+      <column length="30" name="con_name" not-null="true"/>
+    </property>
+    <property name="conDesc" type="string">
+      <column name="con_desc"/>
+    </property>
+    <property name="conStatus" type="java.lang.Boolean">
+      <column name="con_status"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tblTransactions" table="tbl_transaction">
+      <key>
+        <column name="tra_concept"/>
+      </key>
+      <one-to-many class="mvc.model.dal.pojo.TblTransaction"/>
+    </set>
+  </class>
+</hibernate-mapping>
