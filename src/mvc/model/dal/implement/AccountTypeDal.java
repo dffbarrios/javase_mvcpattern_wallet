@@ -21,9 +21,7 @@ public class AccountTypeDal implements IAccountType {
         try{
             accounttypes = session.getSession().createQuery("from TblAccounttype").list();    
         
-        }catch(Exception ex){
-            
-            session.tryRollBack();
+        }catch(Exception ex){         
             throw new RuntimeException(Exceptions.getAccountTypeError, ex);
         
         }finally{

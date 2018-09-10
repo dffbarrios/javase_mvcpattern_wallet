@@ -7,6 +7,7 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd_mywallet_dev?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">isuser</property>
     <property name="hibernate.connection.password">Pass2018.2</property>
+    <property name="current_session_context_class">thread</property>
     <mapping resource="mvc/model/dal/pojo/TblCategory.hbm.xml"/>
     <mapping resource="mvc/model/dal/pojo/TblConcept.hbm.xml"/>
     <mapping resource="mvc/model/dal/pojo/TblAccounttype.hbm.xml"/>

@@ -94,13 +94,8 @@ public class ConceptController implements ActionListener, KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        
-        if(view.jtf_desc.getText().length() > 5){
-            view.btn_save.setEnabled(true);
-        }else{
-            view.btn_save.setEnabled(false);
-        }
+    public void keyTyped(KeyEvent e) {        
+        view.btn_save.setEnabled(view.jtf_desc.getText().length() > 5);
     }
 
     @Override

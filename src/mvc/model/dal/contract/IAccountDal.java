@@ -10,7 +10,9 @@ import mvc.model.dal.pojo.TblAccount;
 public interface IAccountDal {
     void insert(TblAccount account);
     void update(TblAccount account);    
+    
     List<TblAccount> get();
+    TblAccount findByNumber(String accountNumber);
     
     //void delete(TblAccount account);
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/model/dal/implement/AccountDal.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/model/dal/pojo/TblAccount.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/controller/MainController.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/controller/AccountController.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/model/dal/pojo/TblTransaction.hbm.xml</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/model/dal/pojo/TblAccounttype.hbm.xml</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/view/JFFAccount.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/view/JFFMain.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/model/dal/dao/Connection.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/model/dal/contract/IAccountDal.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/model/dal/implement/AccountTypeDal.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/controller/ConceptController.java</file>
+            <file>file:/C:/Users/Diego%20SNP3004EX/Documents/NetBeansProjects/patronMVC/src/mvc/model/dal/pojo/TblAccount.hbm.xml</file>
+        </group>
+    </open-files>
+</project-private>

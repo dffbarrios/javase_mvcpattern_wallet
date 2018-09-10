@@ -28,6 +28,7 @@ public class MainController implements ActionListener {
         view.setIconImage(icon.getImage());
         
         view.btn_concept.addActionListener(this);   
+        view.jbtn_account.addActionListener(this);   
         view.mitem_close.addActionListener(this); 
          
         view.setResizable(false);
@@ -41,6 +42,10 @@ public class MainController implements ActionListener {
       if( e.getSource() == view.btn_concept){
             new ConceptController();
             view.dispose();
+      
+      }else if(e.getSource() == view.jbtn_account){
+           new AccountController();
+           view.dispose();
             
       }else if(e.getSource() == view.mitem_close){
             view.dispose();

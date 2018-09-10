@@ -6,6 +6,13 @@
 
 package mvc.view;
 
+import java.net.URL;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Diego SNP3004EX
@@ -17,6 +24,37 @@ public class JFFAccount extends javax.swing.JFrame {
      */
     public JFFAccount() {
         initComponents();
+        
+        URL url = getClass().getResource("/resource/img/wallet.png");
+        ImageIcon icon = new ImageIcon(url);
+        
+        setTitle("My Wallet");
+        setIconImage(icon.getImage());
+                 
+        setResizable(false);
+        setVisible(true);
+        setLocationRelativeTo(null);
+       
+        jbtn_save.setEnabled(false);
+        jtbl_account.getTableHeader().setReorderingAllowed(false);
+    }
+    
+    public void lauchMessage(String msg){
+        JOptionPane.showMessageDialog(null, msg);
+    }
+    
+    public void fillJTable(Object[][] arr){
+        
+        DefaultTableModel tableModel = (DefaultTableModel) jtbl_account.getModel();
+        tableModel.setRowCount(0);
+        
+        for(Object[] row: arr ){
+             tableModel.addRow(row);
+        }            
+    }
+    
+    public void fillJcomboBox(ArrayList<String> arr){
+        jcbox_type.setModel(new DefaultComboBoxModel(arr.toArray()));
     }
 
     /**
@@ -37,12 +75,14 @@ public class JFFAccount extends javax.swing.JFrame {
         jspn_balance = new javax.swing.JSpinner();
         jlbl_type = new javax.swing.JLabel();
         jcbox_type = new javax.swing.JComboBox();
-        btn_add = new javax.swing.JButton();
+        jbtn_save = new javax.swing.JButton();
         jpnl_account_show = new javax.swing.JPanel();
         jscp_account = new javax.swing.JScrollPane();
         jtbl_account = new javax.swing.JTable();
+        jbtn_search = new javax.swing.JButton();
+        jbtn_close = new javax.swing.JButton();
         jmbar_account = new javax.swing.JMenuBar();
-        jmen_options = new javax.swing.JMenu();
+        jmbar_options = new javax.swing.JMenu();
         jmitem_account = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,13 +93,17 @@ public class JFFAccount extends javax.swing.JFrame {
 
         jlbl_owner.setText("Titular");
 
+        jtf_owner.setEditable(false);
+
         jlbl_balance.setText("Balance");
+
+        jspn_balance.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1.0d)));
 
         jlbl_type.setText("Tipo de Cuenta");
 
         jcbox_type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opción" }));
 
-        btn_add.setText("Agregar");
+        jbtn_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/save.png"))); // NOI18N
 
         javax.swing.GroupLayout jpnl_account_catchLayout = new javax.swing.GroupLayout(jpnl_account_catch);
         jpnl_account_catch.setLayout(jpnl_account_catchLayout);
@@ -69,29 +113,22 @@ public class JFFAccount extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpnl_account_catchLayout.createSequentialGroup()
-                        .addComponent(jlbl_type)
+                        .addComponent(jlbl_number)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jpnl_account_catchLayout.createSequentialGroup()
-                        .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpnl_account_catchLayout.createSequentialGroup()
-                                .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtf_number, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                                    .addComponent(jcbox_type, 0, 1, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtf_owner)
-                                    .addComponent(btn_add, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)))
-                            .addGroup(jpnl_account_catchLayout.createSequentialGroup()
-                                .addComponent(jlbl_number)
-                                .addGap(101, 101, 101)
-                                .addComponent(jlbl_owner)))
+                        .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jlbl_type)
+                            .addComponent(jcbox_type, 0, 140, Short.MAX_VALUE)
+                            .addComponent(jtf_number))
+                        .addGap(30, 30, 30)
+                        .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jlbl_owner)
+                            .addComponent(jlbl_balance)
+                            .addComponent(jtf_owner)
+                            .addComponent(jspn_balance, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpnl_account_catchLayout.createSequentialGroup()
-                                .addComponent(jlbl_balance)
-                                .addGap(0, 109, Short.MAX_VALUE))
-                            .addComponent(jspn_balance))
-                        .addContainerGap())))
+                        .addComponent(jbtn_save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jpnl_account_catchLayout.setVerticalGroup(
             jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,20 +136,23 @@ public class JFFAccount extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbl_number)
-                    .addComponent(jlbl_owner)
-                    .addComponent(jlbl_balance))
+                    .addComponent(jlbl_owner))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtf_number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtf_owner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jspn_balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jlbl_type)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbox_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_add))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnl_account_catchLayout.createSequentialGroup()
+                        .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtf_number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtf_owner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlbl_type)
+                            .addComponent(jlbl_balance))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpnl_account_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jcbox_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jspn_balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jbtn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jtbl_account.setModel(new javax.swing.table.DefaultTableModel(
@@ -120,10 +160,16 @@ public class JFFAccount extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Número", "Titular", "Tipo", "Saldo", "Fecha de Creación"
+                "Número", "Tipo", "Saldo", "Fecha de Creación"
             }
         ));
         jscp_account.setViewportView(jtbl_account);
+
+        jbtn_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/search.png"))); // NOI18N
+        jbtn_search.setText("Listar");
+
+        jbtn_close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/close.png"))); // NOI18N
+        jbtn_close.setText("Salir");
 
         javax.swing.GroupLayout jpnl_account_showLayout = new javax.swing.GroupLayout(jpnl_account_show);
         jpnl_account_show.setLayout(jpnl_account_showLayout);
@@ -131,23 +177,37 @@ public class JFFAccount extends javax.swing.JFrame {
             jpnl_account_showLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnl_account_showLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jscp_account, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jpnl_account_showLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnl_account_showLayout.createSequentialGroup()
+                        .addComponent(jscp_account, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jpnl_account_showLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbtn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtn_close)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpnl_account_showLayout.setVerticalGroup(
             jpnl_account_showLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnl_account_showLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jscp_account, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jpnl_account_showLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbtn_close, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtn_search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jmen_options.setText("Opciones");
+        jmbar_options.setText("Opciones");
 
+        jmitem_account.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        jmitem_account.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/minclose.png"))); // NOI18N
         jmitem_account.setText("Salir");
-        jmen_options.add(jmitem_account);
+        jmbar_options.add(jmitem_account);
 
-        jmbar_account.add(jmen_options);
+        jmbar_account.add(jmbar_options);
 
         setJMenuBar(jmbar_account);
 
@@ -158,9 +218,11 @@ public class JFFAccount extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpnl_account_catch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpnl_account_show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jpnl_account_show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jpnl_account_catch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,8 +230,8 @@ public class JFFAccount extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jpnl_account_catch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnl_account_show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jpnl_account_show, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -211,21 +273,23 @@ public class JFFAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_add;
-    private javax.swing.JComboBox jcbox_type;
+    public javax.swing.JButton jbtn_close;
+    public javax.swing.JButton jbtn_save;
+    public javax.swing.JButton jbtn_search;
+    public javax.swing.JComboBox jcbox_type;
     private javax.swing.JLabel jlbl_balance;
     private javax.swing.JLabel jlbl_number;
     private javax.swing.JLabel jlbl_owner;
     private javax.swing.JLabel jlbl_type;
-    private javax.swing.JMenuBar jmbar_account;
-    private javax.swing.JMenu jmen_options;
-    private javax.swing.JMenuItem jmitem_account;
-    private javax.swing.JPanel jpnl_account_catch;
-    private javax.swing.JPanel jpnl_account_show;
+    public javax.swing.JMenuBar jmbar_account;
+    public javax.swing.JMenu jmbar_options;
+    public javax.swing.JMenuItem jmitem_account;
+    public javax.swing.JPanel jpnl_account_catch;
+    public javax.swing.JPanel jpnl_account_show;
     private javax.swing.JScrollPane jscp_account;
-    private javax.swing.JSpinner jspn_balance;
+    public javax.swing.JSpinner jspn_balance;
     private javax.swing.JTable jtbl_account;
-    private javax.swing.JTextField jtf_number;
-    private javax.swing.JTextField jtf_owner;
+    public javax.swing.JTextField jtf_number;
+    public javax.swing.JTextField jtf_owner;
     // End of variables declaration//GEN-END:variables
 }

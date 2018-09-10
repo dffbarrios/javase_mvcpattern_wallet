@@ -43,8 +43,7 @@ public class JFFConcept extends javax.swing.JFrame {
         
         for(Object[] row: arr ){
              tableModel.addRow(row);
-        }
-            
+        }            
     }
 
     /**

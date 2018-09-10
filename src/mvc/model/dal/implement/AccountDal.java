@@ -6,11 +6,12 @@
 
 package mvc.model.dal.implement;
 
+import java.util.Date;
 import java.util.List;
+import mvc.model.dal.contract.IAccountDal;
 import mvc.model.dal.dao.Connection;
 import mvc.model.dal.pojo.TblAccount;
 import mvc.model.dal.util.Exceptions;
-import mvc.model.dal.contract.IAccountDal;
 
 /**
  *
@@ -24,6 +25,7 @@ public class AccountDal implements IAccountDal {
        Connection session = new Connection();
 
         try{
+            account.setAccCreationdate(new Date());
             session.getSession().persist(account);
             session.getTransaction().commit();   
             
@@ -67,9 +69,29 @@ public class AccountDal implements IAccountDal {
             throw new RuntimeException(Exceptions.getTransactionError, ex);
         
         }finally{
-            session.closeSession();
+            //session.closeSession();
         }  
         
         return accounts;  
     }   
+    
+    public TblAccount findByNumber(String accountNumber) {
+        
+        Connection session = new Connection();
+        TblAccount account;
+        
+        try{
+            account = (TblAccount) session.getSession().createQuery("from TblAccount where accNumber = :accountNumber")
+                        .setParameter("accountNumber", accountNumber).uniqueResult();
+            
+        }catch(Exception Ex){
+            session.tryRollBack();
+            throw new RuntimeException("Error finding user by id.");
+            
+        }finally{
+            session.closeSession();            
+        }
+        
+        return account;
+    }
 }

@@ -22,10 +22,12 @@ public class JFFMain extends javax.swing.JFrame {
     private void initComponents() {
 
         pnl_main = new javax.swing.JPanel();
-        btn_account = new javax.swing.JButton();
+        jbtn_account = new javax.swing.JButton();
         btn_concept = new javax.swing.JButton();
         btn_transaction = new javax.swing.JButton();
         jlbl_concept = new javax.swing.JLabel();
+        jlbl_account = new javax.swing.JLabel();
+        jlbl_transaction = new javax.swing.JLabel();
         mbar_main = new javax.swing.JMenuBar();
         men_option = new javax.swing.JMenu();
         mitem_close = new javax.swing.JMenuItem();
@@ -35,10 +37,10 @@ public class JFFMain extends javax.swing.JFrame {
         pnl_main.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione una operación"));
         pnl_main.setForeground(new java.awt.Color(255, 255, 255));
 
-        btn_account.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/account.png"))); // NOI18N
-        btn_account.setMaximumSize(new java.awt.Dimension(75, 25));
-        btn_account.setMinimumSize(new java.awt.Dimension(75, 25));
-        btn_account.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbtn_account.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/account.png"))); // NOI18N
+        jbtn_account.setMaximumSize(new java.awt.Dimension(75, 25));
+        jbtn_account.setMinimumSize(new java.awt.Dimension(75, 25));
+        jbtn_account.setPreferredSize(new java.awt.Dimension(75, 25));
 
         btn_concept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/moneybox.png"))); // NOI18N
         btn_concept.setMaximumSize(new java.awt.Dimension(75, 25));
@@ -57,23 +59,34 @@ public class JFFMain extends javax.swing.JFrame {
 
         jlbl_concept.setText("Conceptos");
 
+        jlbl_account.setText("Cuentas");
+
+        jlbl_transaction.setText("Transacciones");
+
         javax.swing.GroupLayout pnl_mainLayout = new javax.swing.GroupLayout(pnl_main);
         pnl_main.setLayout(pnl_mainLayout);
         pnl_mainLayout.setHorizontalGroup(
             pnl_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_mainLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(17, 17, 17)
+                .addGroup(pnl_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnl_mainLayout.createSequentialGroup()
+                        .addComponent(jlbl_concept)
+                        .addGap(48, 48, 48)
+                        .addComponent(jlbl_account)
+                        .addGap(24, 24, 24))
+                    .addGroup(pnl_mainLayout.createSequentialGroup()
+                        .addComponent(btn_concept, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbtn_account, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(pnl_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_mainLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jlbl_concept))
+                        .addGap(28, 28, 28)
+                        .addComponent(jlbl_transaction))
                     .addGroup(pnl_mainLayout.createSequentialGroup()
-                        .addComponent(btn_concept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(btn_account, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btn_transaction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_transaction, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         pnl_mainLayout.setVerticalGroup(
             pnl_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,10 +94,13 @@ public class JFFMain extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(pnl_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_concept, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                    .addComponent(btn_account, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                    .addComponent(jbtn_account, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                     .addComponent(btn_transaction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlbl_concept)
+                .addGroup(pnl_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbl_concept)
+                    .addComponent(jlbl_account)
+                    .addComponent(jlbl_transaction))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -107,8 +123,8 @@ public class JFFMain extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnl_main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnl_main, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,10 +177,12 @@ public class JFFMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_account;
     public javax.swing.JButton btn_concept;
     private javax.swing.JButton btn_transaction;
+    public javax.swing.JButton jbtn_account;
+    private javax.swing.JLabel jlbl_account;
     private javax.swing.JLabel jlbl_concept;
+    private javax.swing.JLabel jlbl_transaction;
     public javax.swing.JMenuBar mbar_main;
     public javax.swing.JMenu men_option;
     public javax.swing.JMenuItem mitem_close;
