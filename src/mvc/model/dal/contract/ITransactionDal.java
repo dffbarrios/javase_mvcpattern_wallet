@@ -10,7 +10,7 @@ import mvc.model.dal.pojo.TblTransaction;
 public interface ITransactionDal {
     void insert(TblTransaction transaction);
     void update(TblTransaction transaction);   
-    List<TblTransaction> get();
     
+    List<TblTransaction> get();    
      //void delete(TblTransaction transaction);
 }

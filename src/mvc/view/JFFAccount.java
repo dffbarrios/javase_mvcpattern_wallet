@@ -81,6 +81,9 @@ public class JFFAccount extends javax.swing.JFrame {
         jtbl_account = new javax.swing.JTable();
         jbtn_search = new javax.swing.JButton();
         jbtn_close = new javax.swing.JButton();
+        jtbar_option = new javax.swing.JToolBar();
+        jbtn_backcon = new javax.swing.JButton();
+        jbtn_backtra = new javax.swing.JButton();
         jmbar_account = new javax.swing.JMenuBar();
         jmbar_options = new javax.swing.JMenu();
         jmitem_account = new javax.swing.JMenuItem();
@@ -200,6 +203,20 @@ public class JFFAccount extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jtbar_option.setRollover(true);
+
+        jbtn_backcon.setText("Concepto");
+        jbtn_backcon.setFocusable(false);
+        jbtn_backcon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_backcon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jtbar_option.add(jbtn_backcon);
+
+        jbtn_backtra.setText("Transacciones");
+        jbtn_backtra.setFocusable(false);
+        jbtn_backtra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_backtra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jtbar_option.add(jbtn_backtra);
+
         jmbar_options.setText("Opciones");
 
         jmitem_account.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
@@ -218,19 +235,21 @@ public class JFFAccount extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jpnl_account_show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jpnl_account_catch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpnl_account_catch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jpnl_account_show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addComponent(jtbar_option, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addComponent(jtbar_option, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jpnl_account_catch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnl_account_show, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jpnl_account_show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -273,6 +292,8 @@ public class JFFAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jbtn_backcon;
+    public javax.swing.JButton jbtn_backtra;
     public javax.swing.JButton jbtn_close;
     public javax.swing.JButton jbtn_save;
     public javax.swing.JButton jbtn_search;
@@ -288,6 +309,7 @@ public class JFFAccount extends javax.swing.JFrame {
     public javax.swing.JPanel jpnl_account_show;
     private javax.swing.JScrollPane jscp_account;
     public javax.swing.JSpinner jspn_balance;
+    public javax.swing.JToolBar jtbar_option;
     private javax.swing.JTable jtbl_account;
     public javax.swing.JTextField jtf_number;
     public javax.swing.JTextField jtf_owner;

@@ -36,6 +36,8 @@ public class ConceptController implements ActionListener, KeyListener {
        view.btn_save.addActionListener(this);
        view.jbtn_get.addActionListener(this);
        view.jbtn_close.addActionListener(this);
+       view.jbtn_backacc.addActionListener(this);
+       view.jbtn_backtra.addActionListener(this);
        view.jmitem_close.addActionListener(this);         
    }
    
@@ -80,6 +82,7 @@ public class ConceptController implements ActionListener, KeyListener {
        
         if(e.getSource() == view.btn_save){           
            this.insert();
+           view.fillJTable(this.get());
            
         }else if(e.getSource() == view.jbtn_get){
           view.fillJTable(this.get());
@@ -87,7 +90,16 @@ public class ConceptController implements ActionListener, KeyListener {
         }else if(e.getSource() == view.jbtn_close){
           System.exit(0);
         
-        }else if(e.getSource() == view.jmitem_close){
+        }else if(e.getSource() == view.jbtn_backacc){
+          view.dispose();
+          new AccountController();
+        
+        }else if(e.getSource() == view.jbtn_backtra){
+          view.dispose();
+          new TransactionController();
+        
+        }       
+        else if(e.getSource() == view.jmitem_close){
            view.dispose();
            new MainController();
        }      

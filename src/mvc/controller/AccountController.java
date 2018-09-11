@@ -38,6 +38,10 @@ public class AccountController implements ActionListener, KeyListener {
        view.jtf_number.addKeyListener(this);
        view.jbtn_save.addActionListener(this);		
        view.jbtn_search.addActionListener(this);
+       
+       view.jbtn_backcon.addActionListener(this);		
+       view.jbtn_backtra.addActionListener(this);
+       
        view.jbtn_close.addActionListener(this);
        view.jmitem_account.addActionListener(this);
        
@@ -66,7 +70,7 @@ public class AccountController implements ActionListener, KeyListener {
        }
    }
    
-      public Object[][] get(){
+    public Object[][] get(){
        try{
            AccountDal accountDal = new AccountDal();
            List<TblAccount> account = accountDal.get();
@@ -119,12 +123,21 @@ public class AccountController implements ActionListener, KeyListener {
             
             if(view.jcbox_type.getSelectedIndex() != 0){
                 this.insert();
+                view.fillJTable(this.get());
             }else{                
                 view.lauchMessage("Seleccione tipo de cuenta");
             }   
             
         }else if(e.getSource() == view.jbtn_search){
           view.fillJTable(this.get());
+           
+        }else if(e.getSource() == view.jbtn_backcon){
+           view.dispose();
+           new ConceptController();
+            
+        }else if(e.getSource() == view.jbtn_backtra){
+          view.dispose();
+          new TransactionController();
             
         }else if(e.getSource() == view.jbtn_close){
           System.exit(0);
@@ -137,7 +150,7 @@ public class AccountController implements ActionListener, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {        
-        view.jbtn_save.setEnabled(view.jbtn_save.getText().length() > 5);
+        view.jbtn_save.setEnabled(view.jtf_number.getText().length() > 5);
     }
 
     @Override

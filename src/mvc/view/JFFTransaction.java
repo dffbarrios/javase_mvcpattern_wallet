@@ -81,6 +81,10 @@ public class JFFTransaction extends javax.swing.JFrame {
         jtbl_transaction = new javax.swing.JTable();
         jbtn_close = new javax.swing.JButton();
         jbtn_search = new javax.swing.JButton();
+        jtbar_back = new javax.swing.JToolBar();
+        jbtn_backcon = new javax.swing.JButton();
+        jbtn_backacc = new javax.swing.JButton();
+        jbtn_report = new javax.swing.JButton();
         jmbar_transaction = new javax.swing.JMenuBar();
         jmen_options = new javax.swing.JMenu();
         jmitem_close = new javax.swing.JMenuItem();
@@ -126,7 +130,7 @@ public class JFFTransaction extends javax.swing.JFrame {
                         .addComponent(jlbl_amount)
                         .addComponent(jtf_originacc)
                         .addComponent(jspn_amount, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 29, Short.MAX_VALUE)
                 .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlbl_destinyacc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtf_destinyacc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,7 +186,7 @@ public class JFFTransaction extends javax.swing.JFrame {
             .addGroup(jpnl_transaction_showLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jscp_transaction, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(jpnl_transaction_showLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbtn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,16 +198,38 @@ public class JFFTransaction extends javax.swing.JFrame {
             jpnl_transaction_showLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_transaction_showLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jscp_transaction, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124)
+                .addComponent(jscp_transaction, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jpnl_transaction_showLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_close)
                     .addComponent(jbtn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(174, 174, 174))
         );
 
+        jtbar_back.setRollover(true);
+
+        jbtn_backcon.setText("Concepto");
+        jbtn_backcon.setFocusable(false);
+        jbtn_backcon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_backcon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jtbar_back.add(jbtn_backcon);
+
+        jbtn_backacc.setText("Cuenta");
+        jbtn_backacc.setFocusable(false);
+        jbtn_backacc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_backacc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jtbar_back.add(jbtn_backacc);
+
+        jbtn_report.setText("Reportes");
+        jbtn_report.setFocusable(false);
+        jbtn_report.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_report.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jtbar_back.add(jbtn_report);
+
         jmen_options.setText("Opciones");
 
+        jmitem_close.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        jmitem_close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/minclose.png"))); // NOI18N
         jmitem_close.setText("Salir");
         jmen_options.add(jmitem_close);
 
@@ -216,20 +242,23 @@ public class JFFTransaction extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpnl_transaction_catch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jpnl_transaction_catch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jpnl_transaction_show, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addComponent(jtbar_back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addComponent(jtbar_back, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jpnl_transaction_catch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addComponent(jpnl_transaction_show, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -271,7 +300,10 @@ public class JFFTransaction extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jbtn_backacc;
+    public javax.swing.JButton jbtn_backcon;
     public javax.swing.JButton jbtn_close;
+    public javax.swing.JButton jbtn_report;
     public javax.swing.JButton jbtn_search;
     public javax.swing.JButton jbtn_send;
     public javax.swing.JComboBox jcbox_category;
@@ -288,6 +320,7 @@ public class JFFTransaction extends javax.swing.JFrame {
     public javax.swing.JPanel jpnl_transaction_show;
     private javax.swing.JScrollPane jscp_transaction;
     public javax.swing.JSpinner jspn_amount;
+    public javax.swing.JToolBar jtbar_back;
     public javax.swing.JTable jtbl_transaction;
     public javax.swing.JTextField jtf_destinyacc;
     public javax.swing.JTextField jtf_originacc;

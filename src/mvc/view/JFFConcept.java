@@ -67,6 +67,9 @@ public class JFFConcept extends javax.swing.JFrame {
         jtbl_concept = new javax.swing.JTable();
         jbtn_get = new javax.swing.JButton();
         jbtn_close = new javax.swing.JButton();
+        jtbar_options = new javax.swing.JToolBar();
+        jbtn_backacc = new javax.swing.JButton();
+        jbtn_backtra = new javax.swing.JButton();
         mbar_concept = new javax.swing.JMenuBar();
         jmen_option = new javax.swing.JMenu();
         jmitem_close = new javax.swing.JMenuItem();
@@ -150,7 +153,7 @@ public class JFFConcept extends javax.swing.JFrame {
                     .addComponent(jscp_concept, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(pnl_concept_showLayout.createSequentialGroup()
                         .addComponent(jbtn_get)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                         .addComponent(jbtn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -165,6 +168,20 @@ public class JFFConcept extends javax.swing.JFrame {
                     .addComponent(jbtn_close, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
+
+        jtbar_options.setRollover(true);
+
+        jbtn_backacc.setText("Cuentas");
+        jbtn_backacc.setFocusable(false);
+        jbtn_backacc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_backacc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jtbar_options.add(jbtn_backacc);
+
+        jbtn_backtra.setText("Transacciones");
+        jbtn_backtra.setFocusable(false);
+        jbtn_backtra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_backtra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jtbar_options.add(jbtn_backtra);
 
         jmen_option.setText("Opciones");
 
@@ -183,19 +200,21 @@ public class JFFConcept extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnl_concept_catch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnl_concept_show, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnl_concept_show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnl_concept_catch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
+            .addComponent(jtbar_options, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addComponent(jtbar_options, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(pnl_concept_catch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pnl_concept_show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -238,12 +257,15 @@ public class JFFConcept extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_save;
+    public javax.swing.JButton jbtn_backacc;
+    public javax.swing.JButton jbtn_backtra;
     public javax.swing.JButton jbtn_close;
     public javax.swing.JButton jbtn_get;
     public javax.swing.JMenu jmen_option;
     public javax.swing.JMenuItem jmitem_close;
     private javax.swing.JScrollPane jscp_concept;
     private javax.swing.JScrollPane jscp_details;
+    public javax.swing.JToolBar jtbar_options;
     public javax.swing.JTable jtbl_concept;
     public javax.swing.JTextField jtf_desc;
     public javax.swing.JTextArea jtxt_details;

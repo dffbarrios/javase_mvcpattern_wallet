@@ -6,6 +6,13 @@
 
 package mvc.view;
 
+import java.net.URL;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Diego SNP3004EX
@@ -17,6 +24,36 @@ public class JFFReports extends javax.swing.JFrame {
      */
     public JFFReports() {
         initComponents();
+        
+        URL url = getClass().getResource("/resource/img/wallet.png");
+        ImageIcon icon = new ImageIcon(url);
+        
+        setTitle("My Wallet");
+        setIconImage(icon.getImage());
+                 
+        setResizable(false);
+        setVisible(true);
+        setLocationRelativeTo(null);
+       
+        jtbl_tranbycat.getTableHeader().setReorderingAllowed(false);
+    }
+        
+    public void lauchMessage(String msg){
+        JOptionPane.showMessageDialog(null, msg);
+    }
+    
+    public void fillJTable(Object[][] arr){
+        
+        DefaultTableModel tableModel = (DefaultTableModel) jtbl_tranbycat.getModel();
+        tableModel.setRowCount(0);
+        
+        for(Object[] row: arr ){
+             tableModel.addRow(row);
+        }            
+    }
+    
+    public void fillJcomboBox(ArrayList<String> arr){
+        jcbox_category.setModel(new DefaultComboBoxModel(arr.toArray()));
     }
 
     /**
@@ -82,8 +119,8 @@ public class JFFReports extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcbox_category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jpnl_reportabcontent.addTab("Categoria", jpnl_category);

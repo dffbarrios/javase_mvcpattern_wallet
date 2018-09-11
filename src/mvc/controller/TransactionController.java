@@ -45,8 +45,11 @@ public class TransactionController implements ActionListener, KeyListener, ItemL
        
        view.jtf_originacc.addKeyListener(this);
        
+       view.jbtn_report.addActionListener(this);
        view.jbtn_send.addActionListener(this);
        view.jbtn_search.addActionListener(this);
+       view.jbtn_backacc.addActionListener(this);
+       view.jbtn_backcon.addActionListener(this);
        view.jbtn_close.addActionListener(this);
        
        view.jmitem_close.addActionListener(this);
@@ -220,6 +223,7 @@ public class TransactionController implements ActionListener, KeyListener, ItemL
         if(e.getSource() == view.jbtn_send){           
            if(view.jcbox_concept.getSelectedIndex() != 0){
                this.insert();
+               view.fillJTable(this.get());
            }else{
                 view.lauchMessage("Seleccione un concepto");
            }
@@ -227,7 +231,21 @@ public class TransactionController implements ActionListener, KeyListener, ItemL
         }else if(e.getSource() == view.jbtn_search){
           view.fillJTable(this.get());
             
-        }else if(e.getSource() == view.jbtn_close){
+        }else if(e.getSource() == view.jbtn_backacc){
+          view.dispose();
+          new AccountController();
+            
+        }else if(e.getSource() == view.jbtn_backcon){
+          view.dispose();
+           new ConceptController();
+            
+        }else if(e.getSource() == view.jbtn_report){
+          view.dispose();
+           new ReportController();
+            
+        }        
+        
+        else if(e.getSource() == view.jbtn_close){
           System.exit(0);
         
         }else if(e.getSource() == view.jmitem_close){

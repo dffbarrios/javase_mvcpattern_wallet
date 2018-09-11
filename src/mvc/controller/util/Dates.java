@@ -12,7 +12,7 @@ public class Dates {
         
         Calendar calendar = new GregorianCalendar();
  
-        int year       = calendar.get(Calendar.YEAR);
+        //int year       = calendar.get(Calendar.YEAR);
         int month      = calendar.get(Calendar.MONTH);
         int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH); // Jan = 0, not 1
         //int dayOfWeek  = calendar.get(Calendar.DAY_OF_WEEK);
@@ -25,9 +25,10 @@ public class Dates {
         int second     = calendar.get(Calendar.SECOND);
         int millisecond= calendar.get(Calendar.MILLISECOND);
         
-        String intDate = Integer.toString(year) + Integer.toString(month) + Integer.toString(dayOfMonth) 
-                + Integer.toString(hourOfDay) + Integer.toString(minute) + Integer.toString(second)
-                + Integer.toString(millisecond);
+        String intDate = Integer.toString(dayOfMonth) 
+                + Integer.toString(hourOfDay) + Integer.toString(minute) 
+                + Integer.toString(second);
+                //+ Integer.toString(millisecond);
         
         return Integer.parseInt(intDate);
     }
