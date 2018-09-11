@@ -1,19 +1,23 @@
 package mvc.controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.ArrayList;
+
+import mvc.view.JFFAccount;
+import mvc.view.JFFConcept;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.List;
-import mvc.model.dal.implement.AccountDal;
-import mvc.model.dal.implement.AccountTypeDal;
-import mvc.model.dal.implement.ConceptDal;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import mvc.model.dal.pojo.TblAccount;
 import mvc.model.dal.pojo.TblAccounttype;
 import mvc.model.dal.pojo.TblConcept;
-import mvc.view.JFFAccount;
-import mvc.view.JFFConcept;
+
+import mvc.model.dal.implement.AccountDal;
+import mvc.model.dal.implement.AccountTypeDal;
+import mvc.model.dal.implement.ConceptDal;
 
 /**
  *
@@ -133,7 +137,7 @@ public class AccountController implements ActionListener, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {        
-        view.jbtn_save.setEnabled(view.jbtn_save.getText().length() == 0);
+        view.jbtn_save.setEnabled(view.jbtn_save.getText().length() > 5);
     }
 
     @Override

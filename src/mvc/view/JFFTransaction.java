@@ -1,10 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package mvc.view;
+
+import java.net.URL;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +19,40 @@ public class JFFTransaction extends javax.swing.JFrame {
      */
     public JFFTransaction() {
         initComponents();
+        
+        URL url = getClass().getResource("/resource/img/wallet.png");
+        ImageIcon icon = new ImageIcon(url);
+        
+        setTitle("My Wallet");
+        setIconImage(icon.getImage());
+                 
+        setResizable(false);
+        setVisible(true);
+        setLocationRelativeTo(null);
+       
+        jbtn_send.setEnabled(false);
+        jtf_destinyacc.setEnabled(false);
+        jtf_destinyacc.setVisible(false);
+        jlbl_destinyacc.setVisible(false);
+        jtbl_transaction.getTableHeader().setReorderingAllowed(false);
+    }
+    
+    public void lauchMessage(String msg){
+        JOptionPane.showMessageDialog(null, msg);
+    }
+    
+    public void fillJTable(Object[][] arr){
+        
+        DefaultTableModel tableModel = (DefaultTableModel) jtbl_transaction.getModel();
+        tableModel.setRowCount(0);
+        
+        for(Object[] row: arr ){
+             tableModel.addRow(row);
+        }            
+    }
+    
+    public void fillJcomboBox(ArrayList<String> arr, JComboBox jcombobox){
+        jcombobox.setModel(new DefaultComboBoxModel(arr.toArray()));
     }
 
     /**
@@ -38,11 +74,13 @@ public class JFFTransaction extends javax.swing.JFrame {
         jlbl_concept = new javax.swing.JLabel();
         jcbox_concept = new javax.swing.JComboBox();
         jlbl_amount = new javax.swing.JLabel();
-        btn_send = new javax.swing.JButton();
+        jbtn_send = new javax.swing.JButton();
         jspn_amount = new javax.swing.JSpinner();
         jpnl_transaction_show = new javax.swing.JPanel();
         jscp_transaction = new javax.swing.JScrollPane();
         jtbl_transaction = new javax.swing.JTable();
+        jbtn_close = new javax.swing.JButton();
+        jbtn_search = new javax.swing.JButton();
         jmbar_transaction = new javax.swing.JMenuBar();
         jmen_options = new javax.swing.JMenu();
         jmitem_close = new javax.swing.JMenuItem();
@@ -65,7 +103,10 @@ public class JFFTransaction extends javax.swing.JFrame {
 
         jlbl_amount.setText("Monto");
 
-        btn_send.setText("Enviar");
+        jbtn_send.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/send.png"))); // NOI18N
+        jbtn_send.setText("Enviar");
+
+        jspn_amount.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1.0d)));
 
         javax.swing.GroupLayout jpnl_transaction_catchLayout = new javax.swing.GroupLayout(jpnl_transaction_catch);
         jpnl_transaction_catch.setLayout(jpnl_transaction_catchLayout);
@@ -74,25 +115,22 @@ public class JFFTransaction extends javax.swing.JFrame {
             .addGroup(jpnl_transaction_catchLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnl_transaction_catchLayout.createSequentialGroup()
-                        .addComponent(jlbl_type)
-                        .addGap(99, 99, 99)
-                        .addComponent(jlbl_originacc))
-                    .addGroup(jpnl_transaction_catchLayout.createSequentialGroup()
-                        .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcbox_category, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlbl_concept)
-                            .addComponent(jcbox_concept, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jlbl_amount)
-                            .addComponent(jtf_originacc)
-                            .addComponent(jspn_amount, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))))
+                    .addComponent(jcbox_category, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbl_concept)
+                    .addComponent(jcbox_concept, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbl_type))
+                .addGap(18, 18, 18)
+                .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlbl_originacc)
+                    .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jlbl_amount)
+                        .addComponent(jtf_originacc)
+                        .addComponent(jspn_amount, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlbl_destinyacc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtf_destinyacc)
-                    .addComponent(btn_send, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
+                    .addComponent(jtf_destinyacc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_send))
                 .addContainerGap())
         );
         jpnl_transaction_catchLayout.setVerticalGroup(
@@ -113,11 +151,12 @@ public class JFFTransaction extends javax.swing.JFrame {
                     .addComponent(jlbl_concept)
                     .addComponent(jlbl_amount))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbox_concept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_send)
-                    .addComponent(jspn_amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbtn_send, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpnl_transaction_catchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jcbox_concept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jspn_amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtbl_transaction.setModel(new javax.swing.table.DefaultTableModel(
@@ -130,6 +169,12 @@ public class JFFTransaction extends javax.swing.JFrame {
         ));
         jscp_transaction.setViewportView(jtbl_transaction);
 
+        jbtn_close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/close.png"))); // NOI18N
+        jbtn_close.setText("Salir");
+
+        jbtn_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/search.png"))); // NOI18N
+        jbtn_search.setText("Listar");
+
         javax.swing.GroupLayout jpnl_transaction_showLayout = new javax.swing.GroupLayout(jpnl_transaction_show);
         jpnl_transaction_show.setLayout(jpnl_transaction_showLayout);
         jpnl_transaction_showLayout.setHorizontalGroup(
@@ -138,13 +183,23 @@ public class JFFTransaction extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jscp_transaction, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jpnl_transaction_showLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbtn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jbtn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jpnl_transaction_showLayout.setVerticalGroup(
             jpnl_transaction_showLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_transaction_showLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jscp_transaction, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(360, 360, 360))
+                .addGap(124, 124, 124)
+                .addGroup(jpnl_transaction_showLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_close)
+                    .addComponent(jbtn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(174, 174, 174))
         );
 
         jmen_options.setText("Opciones");
@@ -172,9 +227,9 @@ public class JFFTransaction extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jpnl_transaction_catch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(jpnl_transaction_show, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -216,23 +271,25 @@ public class JFFTransaction extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_send;
-    private javax.swing.JComboBox jcbox_category;
-    private javax.swing.JComboBox jcbox_concept;
+    public javax.swing.JButton jbtn_close;
+    public javax.swing.JButton jbtn_search;
+    public javax.swing.JButton jbtn_send;
+    public javax.swing.JComboBox jcbox_category;
+    public javax.swing.JComboBox jcbox_concept;
     private javax.swing.JLabel jlbl_amount;
     private javax.swing.JLabel jlbl_concept;
-    private javax.swing.JLabel jlbl_destinyacc;
+    public javax.swing.JLabel jlbl_destinyacc;
     private javax.swing.JLabel jlbl_originacc;
     private javax.swing.JLabel jlbl_type;
-    private javax.swing.JMenuBar jmbar_transaction;
-    private javax.swing.JMenu jmen_options;
-    private javax.swing.JMenuItem jmitem_close;
-    private javax.swing.JPanel jpnl_transaction_catch;
-    private javax.swing.JPanel jpnl_transaction_show;
+    public javax.swing.JMenuBar jmbar_transaction;
+    public javax.swing.JMenu jmen_options;
+    public javax.swing.JMenuItem jmitem_close;
+    public javax.swing.JPanel jpnl_transaction_catch;
+    public javax.swing.JPanel jpnl_transaction_show;
     private javax.swing.JScrollPane jscp_transaction;
-    private javax.swing.JSpinner jspn_amount;
-    private javax.swing.JTable jtbl_transaction;
-    private javax.swing.JTextField jtf_destinyacc;
-    private javax.swing.JTextField jtf_originacc;
+    public javax.swing.JSpinner jspn_amount;
+    public javax.swing.JTable jtbl_transaction;
+    public javax.swing.JTextField jtf_destinyacc;
+    public javax.swing.JTextField jtf_originacc;
     // End of variables declaration//GEN-END:variables
 }

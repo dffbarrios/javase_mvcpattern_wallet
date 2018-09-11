@@ -9,4 +9,5 @@ import mvc.model.dal.pojo.TblCategory;
  */
 public interface ICategoryDal {
     List<TblCategory> get();
+    TblCategory findByName(String categoryName);
 }

@@ -67,7 +67,7 @@ public class TransactionDal implements ITransactionDal {
             throw new RuntimeException(Exceptions.getTransactionError, ex);
         
         }finally{
-            session.closeSession();
+            //session.closeSession();
         }  
         
         return transactions;  

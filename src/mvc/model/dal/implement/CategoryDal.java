@@ -30,4 +30,25 @@ public class CategoryDal implements ICategoryDal {
         }        
         return categories;
     }   
+
+    @Override
+    public TblCategory findByName(String categoryName) {
+        
+        Connection session = new Connection();
+        TblCategory category;
+        
+        try{
+            category = (TblCategory) session.getSession().createQuery("from TblCategory where catName = :catName")
+                        .setParameter("catName", categoryName).uniqueResult();
+            
+        }catch(Exception Ex){
+            session.tryRollBack();
+            throw new RuntimeException(Exceptions.findCategoryError);
+            
+        }finally{
+            session.closeSession();            
+        }
+        
+        return category;
+    }
 }

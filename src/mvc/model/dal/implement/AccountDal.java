@@ -86,7 +86,7 @@ public class AccountDal implements IAccountDal {
             
         }catch(Exception Ex){
             session.tryRollBack();
-            throw new RuntimeException("Error finding user by id.");
+            throw new RuntimeException(Exceptions.findAccountError);
             
         }finally{
             session.closeSession();            

@@ -5,6 +5,7 @@ import mvc.model.dal.dao.Connection;
 import mvc.model.dal.pojo.TblConcept;
 import mvc.model.dal.util.Exceptions;
 import mvc.model.dal.contract.IConceptDal;
+import mvc.model.dal.pojo.TblCategory;
 
 /**
  *
@@ -70,5 +71,26 @@ public class ConceptDal implements IConceptDal {
         }  
         
         return concepts;  
+    }
+
+    @Override
+    public TblConcept findByName(String conceptName) {
+        
+        Connection session = new Connection();
+        TblConcept concept;
+        
+        try{
+            concept = (TblConcept) session.getSession().createQuery("from TblConcept where conName = :cName")
+                        .setParameter("cName", conceptName).uniqueResult();
+            
+        }catch(Exception Ex){
+            session.tryRollBack();
+            throw new RuntimeException(Exceptions.findConceptError);
+            
+        }finally{
+            session.closeSession();            
+        }
+        
+        return concept;
     }
 }

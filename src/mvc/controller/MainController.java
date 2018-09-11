@@ -1,10 +1,11 @@
 package mvc.controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.net.URL;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import mvc.view.JFFMain;
 
 /**
@@ -27,8 +28,9 @@ public class MainController implements ActionListener {
         view.setTitle("My Wallet");
         view.setIconImage(icon.getImage());
         
-        view.btn_concept.addActionListener(this);   
+        view.jbtn_concept.addActionListener(this);   
         view.jbtn_account.addActionListener(this);   
+        view.jbtn_transaction.addActionListener(this);
         view.mitem_close.addActionListener(this); 
          
         view.setResizable(false);
@@ -39,12 +41,16 @@ public class MainController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-      if( e.getSource() == view.btn_concept){
+      if( e.getSource() == view.jbtn_concept){
             new ConceptController();
             view.dispose();
       
       }else if(e.getSource() == view.jbtn_account){
            new AccountController();
+           view.dispose();
+            
+      }else if(e.getSource() == view.jbtn_transaction){
+           new TransactionController();
            view.dispose();
             
       }else if(e.getSource() == view.mitem_close){

@@ -23,8 +23,8 @@ public class JFFMain extends javax.swing.JFrame {
 
         pnl_main = new javax.swing.JPanel();
         jbtn_account = new javax.swing.JButton();
-        btn_concept = new javax.swing.JButton();
-        btn_transaction = new javax.swing.JButton();
+        jbtn_concept = new javax.swing.JButton();
+        jbtn_transaction = new javax.swing.JButton();
         jlbl_concept = new javax.swing.JLabel();
         jlbl_account = new javax.swing.JLabel();
         jlbl_transaction = new javax.swing.JLabel();
@@ -42,18 +42,18 @@ public class JFFMain extends javax.swing.JFrame {
         jbtn_account.setMinimumSize(new java.awt.Dimension(75, 25));
         jbtn_account.setPreferredSize(new java.awt.Dimension(75, 25));
 
-        btn_concept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/moneybox.png"))); // NOI18N
-        btn_concept.setMaximumSize(new java.awt.Dimension(75, 25));
-        btn_concept.setMinimumSize(new java.awt.Dimension(75, 25));
-        btn_concept.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbtn_concept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/moneybox.png"))); // NOI18N
+        jbtn_concept.setMaximumSize(new java.awt.Dimension(75, 25));
+        jbtn_concept.setMinimumSize(new java.awt.Dimension(75, 25));
+        jbtn_concept.setPreferredSize(new java.awt.Dimension(75, 25));
 
-        btn_transaction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/transaction.png"))); // NOI18N
-        btn_transaction.setMaximumSize(new java.awt.Dimension(75, 25));
-        btn_transaction.setMinimumSize(new java.awt.Dimension(75, 25));
-        btn_transaction.setPreferredSize(new java.awt.Dimension(75, 25));
-        btn_transaction.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_transaction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/img/transaction.png"))); // NOI18N
+        jbtn_transaction.setMaximumSize(new java.awt.Dimension(75, 25));
+        jbtn_transaction.setMinimumSize(new java.awt.Dimension(75, 25));
+        jbtn_transaction.setPreferredSize(new java.awt.Dimension(75, 25));
+        jbtn_transaction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_transactionActionPerformed(evt);
+                jbtn_transactionActionPerformed(evt);
             }
         });
 
@@ -76,7 +76,7 @@ public class JFFMain extends javax.swing.JFrame {
                         .addComponent(jlbl_account)
                         .addGap(24, 24, 24))
                     .addGroup(pnl_mainLayout.createSequentialGroup()
-                        .addComponent(btn_concept, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbtn_concept, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbtn_account, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(pnl_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,7 +85,7 @@ public class JFFMain extends javax.swing.JFrame {
                         .addComponent(jlbl_transaction))
                     .addGroup(pnl_mainLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(btn_transaction, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbtn_transaction, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         pnl_mainLayout.setVerticalGroup(
@@ -93,9 +93,9 @@ public class JFFMain extends javax.swing.JFrame {
             .addGroup(pnl_mainLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(pnl_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_concept, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                    .addComponent(jbtn_concept, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                     .addComponent(jbtn_account, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                    .addComponent(btn_transaction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbtn_transaction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbl_concept)
@@ -137,9 +137,9 @@ public class JFFMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_transactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_transactionActionPerformed
+    private void jbtn_transactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_transactionActionPerformed
         
-    }//GEN-LAST:event_btn_transactionActionPerformed
+    }//GEN-LAST:event_jbtn_transactionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,9 +177,9 @@ public class JFFMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btn_concept;
-    private javax.swing.JButton btn_transaction;
     public javax.swing.JButton jbtn_account;
+    public javax.swing.JButton jbtn_concept;
+    public javax.swing.JButton jbtn_transaction;
     private javax.swing.JLabel jlbl_account;
     private javax.swing.JLabel jlbl_concept;
     private javax.swing.JLabel jlbl_transaction;

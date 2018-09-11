@@ -10,8 +10,9 @@ import mvc.model.dal.pojo.TblConcept;
 public interface IConceptDal {
     
     void insert(TblConcept concept);
-    void update(TblConcept concept);    
-    List<TblConcept> get();
+    void update(TblConcept concept);
     
+    List<TblConcept> get();
+    TblConcept findByName(String conceptName);
     //void delete(TblConcept concept);
 }
