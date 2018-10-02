@@ -72,6 +72,7 @@ public class JFFReports extends javax.swing.JFrame {
         jcbox_category = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_tranbycat = new javax.swing.JTable();
+        btn_GraphbyCat = new javax.swing.JButton();
         jpnl_date = new javax.swing.JPanel();
         jpnl_graphic1 = new javax.swing.JPanel();
         jtbar_report = new javax.swing.JToolBar();
@@ -96,6 +97,8 @@ public class JFFReports extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtbl_tranbycat);
 
+        btn_GraphbyCat.setText("Ver Grafica");
+
         javax.swing.GroupLayout jpnl_categoryLayout = new javax.swing.GroupLayout(jpnl_category);
         jpnl_category.setLayout(jpnl_categoryLayout);
         jpnl_categoryLayout.setHorizontalGroup(
@@ -105,10 +108,12 @@ public class JFFReports extends javax.swing.JFrame {
                 .addGroup(jpnl_categoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
                     .addGroup(jpnl_categoryLayout.createSequentialGroup()
-                        .addGroup(jpnl_categoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlbl_category)
-                            .addComponent(jcbox_category, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jlbl_category)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jpnl_categoryLayout.createSequentialGroup()
+                        .addComponent(jcbox_category, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_GraphbyCat)))
                 .addContainerGap())
         );
         jpnl_categoryLayout.setVerticalGroup(
@@ -117,9 +122,11 @@ public class JFFReports extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jlbl_category)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcbox_category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jpnl_categoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbox_category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_GraphbyCat))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -245,6 +252,7 @@ public class JFFReports extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btn_GraphbyCat;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jbtn_back;
     public javax.swing.JComboBox jcbox_category;
